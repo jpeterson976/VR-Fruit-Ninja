@@ -1,14 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public SteamVR_TrackedController left;
+    public SteamVR_TrackedController right;
+    public GameObject shurikenPreview;
+    public GameObject shuriken;
+    public Text shurikenCounter;
+
     public float jumpForce;
     public float walkSpeed;
     public float flySpeed;
     public float flyLimit;
 
+    public int shurikenCount = 5;
     private bool isGrounded;
     private bool isFlying;
     private float flyTimer = 0f;
@@ -46,6 +54,26 @@ public class Player : MonoBehaviour
                 Vector3 vel = rb.velocity;
                 vel.y = 0;
                 rb.velocity = vel;
+            }
+        }
+
+        if (left.triggerPressed)
+        {
+            if (right.triggerPressed)
+            {
+                Debug.Log("sugar rush!!!!!!!!!!!!!!!!!!");
+            }
+            else if (shurikenCount > 0)
+                shurikenPreview.SetActive(true);
+        }
+        else
+        {
+            if (shurikenPreview.activeInHierarchy)
+            {
+                shurikenPreview.SetActive(false);
+                GameObject.Instantiate(shuriken, left.gameObject.transform.position, left.gameObject.transform.rotation);
+                shurikenCount--;
+                shurikenCounter.text = "Shurikens: " + shurikenCount;
             }
         }
 
