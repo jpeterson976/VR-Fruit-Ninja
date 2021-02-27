@@ -4,20 +4,10 @@ using UnityEngine;
 
 public class FruitTracker : MonoBehaviour
 {
-    private int spawned = 0;
-    private int killed = 0;
+    public float spawned = 0.0f;
+    public float killed = 0.0f;
 
-    public int numberSpawned()
-    {
-        return spawned;
-    }
-
-    public int numberKilled()
-    {
-        return killed;
-    }
-
-    public int numberActive()
+    public float numberActive()
     {
         return spawned - killed;
     }

@@ -9,6 +9,8 @@ public class GenerateEnemies : MonoBehaviour
     public int zPos;
     public int enemyCount;
 
+    public FruitTracker ft;
+
     int index;
 
 
@@ -19,7 +21,7 @@ public class GenerateEnemies : MonoBehaviour
 
     IEnumerator EnemyDrop()
     {
-        while (enemyCount < 10)
+        while (ft.numberActive() < 10)
         {
             xPos = Random.Range(-300, -230);
             zPos = Random.Range(110, 180);
@@ -38,7 +40,7 @@ public class GenerateEnemies : MonoBehaviour
             }
 
             yield return new WaitForSeconds(5);
-            enemyCount++;
+            ft.spawned += 1.0f;
         }
     }
     

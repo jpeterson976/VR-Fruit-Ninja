@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3942833796715096064}
   - component: {fileID: 7238137875484685802}
   - component: {fileID: 7486613290120569710}
+  - component: {fileID: 7438545525972382620}
   m_Layer: 0
   m_Name: apple
   m_TagString: Fruit
@@ -143,3 +144,18 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 0}
   loseMenu: {fileID: 0}
+--- !u!114 &7438545525972382620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829371231341652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18f7c035471e5a642b2dd2fe7e0006e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1920681965891285081, guid: 379e5b9882b9e684d9c224e9bf514d09,
+    type: 3}
+  fireRate: 100

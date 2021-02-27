@@ -12,12 +12,15 @@ public class EnemyMovement : MonoBehaviour
     private int jumpFrequency = 50;
     private Rigidbody rb;
 
-    private GameObject target;
+    private GameObject player;
+    private HealthSystem hs;
 
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.Find("Camera");
+        player = GameObject.Find("Camera");
+
+        hs = GetComponent<HealthSystem>();
 
         counter = 0;
         rb = GetComponent<Rigidbody>();
@@ -28,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
     {
         counter++; 
 
-        this.gameObject.transform.LookAt(target.transform);    
+        this.gameObject.transform.LookAt(player.transform);    
         transform.position = transform.position + (transform.forward * speed * Time.smoothDeltaTime);
 
         if (this.gameObject.name.Equals("peach(Clone)"))
@@ -37,5 +40,14 @@ public class EnemyMovement : MonoBehaviour
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 counter = 0;
             }
+        
+        if (hs.isDead())
+        {
+            if (this.gameObject.name.Equals("strawberry(Clone)"))
+                player.GetComponent<FruitTracker>().killed += 0.1f;
+            else
+                player.GetComponent<FruitTracker>().killed += 1.0f;
+            Destroy(this.gameObject);
+        }
     }
 }

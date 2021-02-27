@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -4330241911686680662}
   - component: {fileID: 8391958777057553384}
   - component: {fileID: 7786883978918070594}
+  - component: {fileID: 5290943684948992915}
   m_Layer: 0
   m_Name: watermelon
   m_TagString: Fruit
@@ -125,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f46b3326e6d51d4192abb3be31dd3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 1
   jumpForce: 0
 --- !u!114 &7786883978918070594
 MonoBehaviour:
@@ -143,3 +144,18 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 0}
   loseMenu: {fileID: 0}
+--- !u!114 &5290943684948992915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125202155953082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18f7c035471e5a642b2dd2fe7e0006e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1070912303284301925, guid: b659619f20797fc40821457fc5a2fbcf,
+    type: 3}
+  fireRate: 100
