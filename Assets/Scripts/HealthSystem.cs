@@ -53,11 +53,6 @@ public class HealthSystem : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            Damage(10);
-        else if (Input.GetKeyDown(KeyCode.D))
-            Heal(20);
-
         if (gameObject.tag.Equals("Player"))
             if (isDead())
             {

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fruit
+  - projectile
+  - Ground
   layers:
   - Default
   - TransparentFX
