@@ -30,7 +30,7 @@ public class GenerateEnemies : MonoBehaviour
             Instantiate(enemy[index], spawn, Quaternion.identity);
             if (index == 1)
             {
-                for (int i = 0; i <= 10; i++)
+                for (int i = 0; i < 9; i++)
                 {
                     Instantiate(enemy[index], spawn, Quaternion.identity);
                     yield return new WaitForSeconds(0.5f);

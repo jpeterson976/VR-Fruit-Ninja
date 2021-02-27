@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -4021767263689091009}
   - component: {fileID: -1243539157349016022}
   - component: {fileID: 796325606169992568}
+  - component: {fileID: 1571556488479104035}
   m_Layer: 0
   m_Name: peach
   m_TagString: Fruit
@@ -125,3 +126,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
+  jumpForce: 5
+--- !u!114 &1571556488479104035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541859410316496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa951791e36bccb4997522125ac8daf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  currentHealth: 0
+  healthBar: {fileID: 0}
+  loseMenu: {fileID: 0}

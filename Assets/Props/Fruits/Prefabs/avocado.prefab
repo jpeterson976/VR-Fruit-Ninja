@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -3490193215441309160}
   - component: {fileID: 3848545507187264860}
   - component: {fileID: -6801020879570431171}
+  - component: {fileID: 6008293372429618586}
   m_Layer: 0
   m_Name: avocado
   m_TagString: Fruit
@@ -125,3 +126,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  jumpForce: 0
+--- !u!114 &6008293372429618586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369001872449898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa951791e36bccb4997522125ac8daf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}
+  loseMenu: {fileID: 0}

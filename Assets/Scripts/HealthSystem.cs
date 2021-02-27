@@ -38,7 +38,7 @@ public class HealthSystem : MonoBehaviour
         if (healthBar != null)
             healthBar.SetHealth(currentHealth);
 
-        if (gameObject.tag.Equals("Droid"))
+        if (gameObject.tag.Equals("Fruit"))
         {
             ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
             ps.Play();
