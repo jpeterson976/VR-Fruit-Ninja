@@ -17,6 +17,10 @@ public class Player : MonoBehaviour
     public float flySpeed;
     public float flyLimit;
 
+    public bool slimed = false;
+    public GameObject slimedDisplay;
+    private float slimeCounter = 0;
+
     public int shurikenCount = 5;
     private bool isGrounded;
     private bool isFlying;
@@ -35,6 +39,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (slimed)
+        {
+            slimeCounter += Time.deltaTime;
+            slimedDisplay.SetActive(true);
+        }
+        
+        if (slimeCounter >= 5)
+        {
+            slimeCounter = 0;
+            slimed = false;
+            slimedDisplay.SetActive(false);
+        }
+
         if (isFlying)
             flyTimer += Time.deltaTime;
         if (flyTimer >= flyLimit)

@@ -45,6 +45,13 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
+    public void ShowDamage()
+    {
+        if (!this.gameObject.GetComponent<Player>().slimed)
+            if (!DamageIndicatorSystem.CheckIfObjectInSight(this.transform))
+                DamageIndicatorSystem.CreateIndicator(this.transform);
+    }
+
     public bool isDead()
     {
         return currentHealth <= 0;

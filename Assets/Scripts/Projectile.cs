@@ -21,12 +21,20 @@ public class Projectile : MonoBehaviour
             if (this.gameObject.name.Equals("Seed(Clone"))
             {
                 collision.gameObject.GetComponent<HealthSystem>().Damage(damageAmount);
+                collision.gameObject.GetComponent<HealthSystem>().ShowDamage();
             }
 
             // apple spits poison (damage over time)
             if (this.gameObject.name.Equals("Poison(Clone)"))
             {
-                collision.gameObject.GetComponent<HealthSystem>().Damage(2 * Time.deltaTime);
+                collision.gameObject.GetComponent<HealthSystem>().Damage(damageAmount * Time.deltaTime);
+                collision.gameObject.GetComponent<HealthSystem>().ShowDamage();
+            }
+
+            // avocado slimes the screen
+            if (this.gameObject.name.Equals("Slime(Clone)"))
+            {
+                collision.gameObject.GetComponent<Player>().slimed = true;
             }
         }
 
