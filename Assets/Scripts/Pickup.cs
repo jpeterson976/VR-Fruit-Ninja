@@ -18,8 +18,7 @@ public class Pickup : MonoBehaviour
 
             if (this.gameObject.name.Equals("Pie(Clone)"))
             {
-                collision.gameObject.GetComponent<HealthSystem>().Damage(damageAmount * Time.deltaTime);
-                collision.gameObject.GetComponent<HealthSystem>().ShowDamage();
+                collision.gameObject.GetComponent<HealthSystem>().Heal(healthAmount);
             }
 
             // avocado slimes the screen
@@ -28,11 +27,7 @@ public class Pickup : MonoBehaviour
                 collision.gameObject.GetComponent<Player>().shurikenCount++;
             }
         }
-
-        // SHOULD anything happen here? maybe a sound effect?
-        if (collision.gameObject.name.Equals("Katana_LODA"))
-        {
-            Debug.Log("sword collision");
-        }
    }
+
+   
 }
