@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public GameObject shurikenPreview;
     public GameObject shuriken;
     public Text shurikenCounter;
+    public GrapplingHook hook;
 
     public float jumpForce;
     public float walkSpeed;
@@ -57,12 +58,19 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (left.gripped && !hook.IsActive())
+            hook.SetActive(true);
+        else if (!left.gripped && hook.IsActive())
+            hook.SetActive(false);
+
         if (left.triggerPressed)
         {
             if (right.triggerPressed)
             {
                 Debug.Log("sugar rush!!!!!!!!!!!!!!!!!!");
             }
+            else if (left.gripped)
+                hook.Fire();
             else if (shurikenCount > 0)
                 shurikenPreview.SetActive(true);
         }
