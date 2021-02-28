@@ -12,6 +12,7 @@ public class FNShootProjectile : MonoBehaviour
     private bool isMoldy = false;
     private float moldTime = 5.0f;
     private float moldTimer = 0.0f;
+    private bool isGrabbed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,9 @@ public class FNShootProjectile : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (isGrabbed)
+            return;
+
         counter++;
 
         if (isMoldy)
@@ -49,5 +53,15 @@ public class FNShootProjectile : MonoBehaviour
     {
         isMoldy = true;
         moldTimer = 0f;
+    }
+
+    public void Grab()
+    {
+        isGrabbed = true;
+    }
+
+    public void Ungrab()
+    {
+        isGrabbed = false;
     }
 }

@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
     private bool isMoldy = false;
     private float moldTime = 5f;
     private float moldTimer = 0f;
+    private bool isGrabbed = false;
     private Rigidbody rb;
 
     private GameObject player;
@@ -32,6 +33,9 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isGrabbed)
+            return;
+
         counter++;
 
         if (isMoldy)
@@ -46,9 +50,9 @@ public class EnemyMovement : MonoBehaviour
 
             return;
         }
-
+        /*
         this.gameObject.transform.LookAt(player.transform);    
-        transform.position = transform.position + (transform.forward * speed * Time.smoothDeltaTime);
+        transform.position = transform.position + (transform.forward * 0 * Time.smoothDeltaTime);
 
         if (this.gameObject.name.Equals("peach(Clone)"))
             if (counter == jumpFrequency)
@@ -65,6 +69,7 @@ public class EnemyMovement : MonoBehaviour
                 player.GetComponent<FruitTracker>().killed += 1.0f;
             Destroy(this.gameObject);
         }
+        */
     }
 
     public void Moldy()
@@ -72,5 +77,17 @@ public class EnemyMovement : MonoBehaviour
         GetComponentInChildren<ParticleSystem>().Play();
         isMoldy = true;
         moldTimer = 0f;
+    }
+
+    public void Grab()
+    {
+        isGrabbed = true;
+        rb.useGravity = false;
+    }
+
+    public void Ungrab()
+    {
+        isGrabbed = false;
+        rb.useGravity = true;
     }
 }

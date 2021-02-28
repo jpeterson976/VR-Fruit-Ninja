@@ -26,25 +26,33 @@ public class GrapplingHook : MonoBehaviour
         {
             transform.position = transform.position + (transform.forward * speed * Time.deltaTime);
         }
-        else if (attached)
+        if (attached)
         {
-            transform.position = fruit.transform.position;
-            fruit.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(left.transform.position - transform.position) * pullForce, ForceMode.VelocityChange);
+            fruit.transform.position = left.transform.position;
+            fruit.transform.rotation = left.transform.rotation;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.tag);
-
         if (other.gameObject.tag.Equals("Fruit"))
         {
             extending = false;
             attached = true;
             fruit = other.gameObject;
+            fruit.transform.SetParent(left.transform);
+            fruit.transform.position = left.transform.position;
+            fruit.GetComponent<EnemyMovement>().Grab();
+            FNShootProjectile sp = fruit.GetComponent<FNShootProjectile>();
+
+            if (sp != null)
+                sp.Grab();
+
+            Attach();
         }
         else
             Reset();
+
     }
 
     public void Fire()
@@ -52,14 +60,33 @@ public class GrapplingHook : MonoBehaviour
         extending = true;
     }
 
+    public void Attach()
+    {
+        rb.velocity = Vector3.zero;
+        transform.position = left.transform.position;
+        transform.rotation = left.transform.rotation;
+        extending = false;
+    }
+
     public void Reset()
     {
         rb.velocity = Vector3.zero;
         transform.position = left.transform.position;
         transform.rotation = left.transform.rotation;
-        fruit = null;
         extending = false;
         attached = false;
+
+        if (fruit != null)
+        {
+            fruit.transform.SetParent(null);
+            fruit.GetComponent<EnemyMovement>().Ungrab();
+            FNShootProjectile sp = fruit.GetComponent<FNShootProjectile>();
+
+            if (sp != null)
+                sp.Ungrab();
+
+            fruit = null;
+        }
     }
 
     public void SetActive(bool active)

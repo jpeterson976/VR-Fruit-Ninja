@@ -97,12 +97,13 @@ public class Player : MonoBehaviour
 
         if (left.triggerPressed)
         {
-            if (right.triggerPressed)
+            if (right.triggerPressed && !sugarRush)
             {
                 GameObject[] fruits = GameObject.FindGameObjectsWithTag("Fruit");
 
                 foreach (GameObject fruit in fruits)
                 {
+                    fruit.GetComponent<EnemyMovement>().Moldy();
                     FNShootProjectile sp = fruit.GetComponent<FNShootProjectile>();
 
                     if (sp != null)
@@ -111,7 +112,6 @@ public class Player : MonoBehaviour
                     sugar.gameObject.SetActive(true);
                     sugarRush = true;
                     sugarCD = 5f;
-                    fruit.GetComponent<EnemyMovement>().Moldy();
                 }
             }
             else if (left.gripped)
