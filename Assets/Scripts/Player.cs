@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     private float flyTimer = 0f;
     private float sugarCD = 0f;
     private bool sugarRush = false;
+    private bool rightPadPressed = false;
+    private bool leftPadPressed = false;
 
     private Rigidbody rb;
     private GameObject head;
@@ -36,12 +38,15 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        head = GameObject.Find("Camera");
+        head = GameObject.Find("Camera (eye)");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (rightPadPressed && !right.padPressed)
+            rightPadPressed = false;
+
         if (sugarRush)
         {
             sugarCD -= Time.deltaTime;
@@ -75,8 +80,10 @@ public class Player : MonoBehaviour
             rb.useGravity = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (right.padPressed && !rightPadPressed)
         {
+            rightPadPressed = true;
+
             if (isGrounded)
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             else if (flyTimer < flyLimit)
@@ -130,7 +137,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.W))
+        if (left.padPressed)
         {
             if (isFlying)
             {
