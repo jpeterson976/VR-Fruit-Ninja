@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4137478619269352151}
   - component: {fileID: 2761996499670257612}
+  - component: {fileID: 3937754054281231719}
   m_Layer: 0
   m_Name: Poison
   m_TagString: Untagged
@@ -51,6 +52,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 2
   projectileSpeed: 15
+--- !u!135 &3937754054281231719
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920681965891285081}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2360536144576938852
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +76,6 @@ GameObject:
   - component: {fileID: 848247722049860370}
   - component: {fileID: 2943363911740926526}
   - component: {fileID: 3729305522484320916}
-  - component: {fileID: 4741399090114446084}
   m_Layer: 0
   m_Name: Splatter
   m_TagString: Untagged
@@ -131,19 +144,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &4741399090114446084
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2360536144576938852}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2817303295285008619
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +155,6 @@ GameObject:
   - component: {fileID: 6358244447964251847}
   - component: {fileID: 4280544341211749537}
   - component: {fileID: 1701258917657333170}
-  - component: {fileID: 6227897010514765869}
   m_Layer: 0
   m_Name: Splatter (3)
   m_TagString: Untagged
@@ -224,19 +223,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &6227897010514765869
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2817303295285008619}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4820802421740313776
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +234,6 @@ GameObject:
   - component: {fileID: 8065382821308574187}
   - component: {fileID: 7801308104232409159}
   - component: {fileID: 4628711701714135257}
-  - component: {fileID: 4498948664445352531}
   m_Layer: 0
   m_Name: Splatter (1)
   m_TagString: Untagged
@@ -317,19 +302,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &4498948664445352531
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4820802421740313776}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7365597806873517703
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +313,6 @@ GameObject:
   - component: {fileID: 8951403675847474141}
   - component: {fileID: 3210450669653167983}
   - component: {fileID: 7434848784898155007}
-  - component: {fileID: 5487817308303636185}
   m_Layer: 0
   m_Name: Splatter (4)
   m_TagString: Untagged
@@ -410,19 +381,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &5487817308303636185
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7365597806873517703}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7890927860523635677
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,7 +392,6 @@ GameObject:
   - component: {fileID: 1106649391460090200}
   - component: {fileID: 6933077521649466085}
   - component: {fileID: 1008647340950869199}
-  - component: {fileID: 4935961956229823256}
   m_Layer: 0
   m_Name: Splatter (2)
   m_TagString: Untagged
@@ -503,19 +460,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &4935961956229823256
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7890927860523635677}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8575787865536323571
 GameObject:
   m_ObjectHideFlags: 0

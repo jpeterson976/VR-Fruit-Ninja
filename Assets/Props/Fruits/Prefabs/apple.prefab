@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  damageAmount: 5
   jumpForce: 0
 --- !u!114 &7486613290120569710
 MonoBehaviour:
@@ -159,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1920681965891285081, guid: 379e5b9882b9e684d9c224e9bf514d09,
     type: 3}
-  fireRate: 100
+  fireRate: 400
 --- !u!1001 &9121050276471942463
 PrefabInstance:
   m_ObjectHideFlags: 0

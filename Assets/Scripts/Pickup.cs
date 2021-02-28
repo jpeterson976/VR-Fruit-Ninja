@@ -11,19 +11,15 @@ public class Pickup : MonoBehaviour
         // projectile hits the player
         if (collision.gameObject.tag.Equals("Player"))
         {
+            Debug.Log("the player hit the thing");
             if (this.gameObject.name.Equals("Cake(clone)"))
             {
-                collision.gameObject.GetComponent<HealthSystem>().Heal(healthAmount);
+                collision.gameObject.GetComponentInParent<HealthSystem>().Heal(healthAmount);
             }
 
             if (this.gameObject.name.Equals("Pie(Clone)"))
             {
-                collision.gameObject.GetComponent<HealthSystem>().Heal(healthAmount);
-            }
-
-            if (this.gameObject.name.Equals("Shuriken(Clone)"))
-            {
-                collision.gameObject.GetComponent<Player>().shurikenCount++;
+                collision.gameObject.GetComponentInParent<HealthSystem>().Heal(healthAmount);
             }
 
             Destroy(gameObject);

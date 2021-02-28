@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4542461084504180}
   - component: {fileID: 1965418481517367083}
+  - component: {fileID: 8497281016332603998}
+  - component: {fileID: 7414120536677558394}
   m_Layer: 0
   m_Name: Pie
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1436622047631754}
   m_LocalRotation: {x: -0.18301202, y: -0.6830118, z: -0.18301268, w: 0.6830138}
   m_LocalPosition: {x: 0.712, y: 0.1018, z: 1.071}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4008108275267026}
   - {fileID: 4879407433237610}
@@ -48,6 +50,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 50
+--- !u!64 &8497281016332603998
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436622047631754}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!54 &7414120536677558394
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436622047631754}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1522364725330496
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +249,6 @@ GameObject:
   - component: {fileID: 4008108275267026}
   - component: {fileID: 33809645950948270}
   - component: {fileID: 23879135475705902}
-  - component: {fileID: 4479195483095095287}
   - component: {fileID: 5191789140400805044}
   m_Layer: 0
   m_Name: Pie4/4
@@ -287,22 +318,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &4479195483095095287
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736187053693178}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!64 &5191789140400805044
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -311,7 +326,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736187053693178}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1

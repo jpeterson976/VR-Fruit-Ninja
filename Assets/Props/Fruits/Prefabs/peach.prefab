@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  damageAmount: 5
   jumpForce: 5
 --- !u!114 &1571556488479104035
 MonoBehaviour:

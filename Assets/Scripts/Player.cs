@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     public GameObject slimedDisplay;
     private float slimeCounter = 0;
 
-    public int shurikenCount = 5;
+    public int shurikenCount = 15;
     private bool isGrounded;
     private bool isFlying;
     private float flyTimer = 0f;

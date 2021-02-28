@@ -21,7 +21,7 @@ public class GeneratePickups : MonoBehaviour
         {
             xPos = Random.Range(-300, -230);
             zPos = Random.Range(110, 180);
-            index = Random.Range(0, 5);
+            index = Random.Range(0, 4);
 
             Vector3 spawn = new Vector3(xPos, 40, zPos);
 

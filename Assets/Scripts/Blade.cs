@@ -9,6 +9,9 @@ public class Blade : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("Fruit"))
+        {
             other.gameObject.GetComponent<HealthSystem>().Damage(damage);
+            other.gameObject.GetComponent<Rigidbody>().AddForce(other.gameObject.transform.forward * -1f * 2f, ForceMode.Impulse);
+        }
     }
 }

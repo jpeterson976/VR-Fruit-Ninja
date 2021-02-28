@@ -5,11 +5,12 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float speed = 1.0f;
+    public float damageAmount;
 
     // peaches can jump
     public float jumpForce;
     private int counter;
-    private int jumpFrequency = 50;
+    private int jumpFrequency = 100;
     private bool isMoldy = false;
     private float moldTime = 5f;
     private float moldTimer = 0f;
@@ -50,7 +51,7 @@ public class EnemyMovement : MonoBehaviour
 
             return;
         }
-        /*
+        
         this.gameObject.transform.LookAt(player.transform);    
         transform.position = transform.position + (transform.forward * 0 * Time.smoothDeltaTime);
 
@@ -69,7 +70,7 @@ public class EnemyMovement : MonoBehaviour
                 player.GetComponent<FruitTracker>().killed += 1.0f;
             Destroy(this.gameObject);
         }
-        */
+        
     }
 
     public void Moldy()
@@ -83,11 +84,21 @@ public class EnemyMovement : MonoBehaviour
     {
         isGrabbed = true;
         rb.useGravity = false;
+        // transform.localScale = transform.localScale / 2f;
     }
 
     public void Ungrab()
     {
         isGrabbed = false;
         rb.useGravity = true;
+        // transform.localScale = transform.localScale * 2f;
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            collision.gameObject.GetComponentInParent<HealthSystem>().Damage(damageAmount);
+        }
     }
 }
