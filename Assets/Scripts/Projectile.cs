@@ -18,7 +18,7 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player"))
         {
             // watermelon spits seeds
-            if (this.gameObject.name.Equals("Seed(Clone"))
+            if (this.gameObject.name.Equals("Seed(Clone)"))
             {
                 collision.gameObject.GetComponent<HealthSystem>().Damage(damageAmount);
                 collision.gameObject.GetComponent<HealthSystem>().ShowDamage();
