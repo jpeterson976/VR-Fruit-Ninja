@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public GameObject shuriken;
     public Text shurikenCounter;
     public GrapplingHook hook;
+    public SugarRush sugar;
 
     public float jumpForce;
     public float walkSpeed;
@@ -25,6 +26,8 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     private bool isFlying;
     private float flyTimer = 0f;
+    private float sugarCD = 0f;
+    private bool sugarRush = false;
 
     private Rigidbody rb;
     private GameObject head;
@@ -39,6 +42,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (sugarRush)
+        {
+            sugarCD -= Time.deltaTime;
+            sugar.SetTime(sugarCD);
+
+            if (sugarCD <= 0)
+            {
+                sugar.gameObject.SetActive(false);
+                sugarRush = false;
+            }
+        }
+
         if (slimed)
         {
             slimeCounter += Time.deltaTime;
@@ -84,7 +99,20 @@ public class Player : MonoBehaviour
         {
             if (right.triggerPressed)
             {
-                Debug.Log("sugar rush!!!!!!!!!!!!!!!!!!");
+                GameObject[] fruits = GameObject.FindGameObjectsWithTag("Fruit");
+
+                foreach (GameObject fruit in fruits)
+                {
+                    FNShootProjectile sp = fruit.GetComponent<FNShootProjectile>();
+
+                    if (sp != null)
+                        sp.Moldy();
+
+                    sugar.gameObject.SetActive(true);
+                    sugarRush = true;
+                    sugarCD = 5f;
+                    fruit.GetComponent<EnemyMovement>().Moldy();
+                }
             }
             else if (left.gripped)
                 hook.Fire();

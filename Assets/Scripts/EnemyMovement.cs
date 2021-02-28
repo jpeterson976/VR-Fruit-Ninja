@@ -10,6 +10,9 @@ public class EnemyMovement : MonoBehaviour
     public float jumpForce;
     private int counter;
     private int jumpFrequency = 50;
+    private bool isMoldy = false;
+    private float moldTime = 5f;
+    private float moldTimer = 0f;
     private Rigidbody rb;
 
     private GameObject player;
@@ -18,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Camera");
+        player = GameObject.Find("Camera (eye)");
 
         hs = GetComponent<HealthSystem>();
 
@@ -29,7 +32,20 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        counter++; 
+        counter++;
+
+        if (isMoldy)
+        {
+            moldTimer += Time.deltaTime;
+
+            if (moldTimer >= moldTime)
+            {
+                isMoldy = false;
+                moldTimer = 0f;
+            }
+
+            return;
+        }
 
         this.gameObject.transform.LookAt(player.transform);    
         transform.position = transform.position + (transform.forward * speed * Time.smoothDeltaTime);
@@ -49,5 +65,12 @@ public class EnemyMovement : MonoBehaviour
                 player.GetComponent<FruitTracker>().killed += 1.0f;
             Destroy(this.gameObject);
         }
+    }
+
+    public void Moldy()
+    {
+        GetComponentInChildren<ParticleSystem>().Play();
+        isMoldy = true;
+        moldTimer = 0f;
     }
 }
