@@ -21,13 +21,14 @@ public class Pickup : MonoBehaviour
                 collision.gameObject.GetComponent<HealthSystem>().Heal(healthAmount);
             }
 
-            // avocado slimes the screen
             if (this.gameObject.name.Equals("Shuriken(Clone)"))
             {
                 collision.gameObject.GetComponent<Player>().shurikenCount++;
             }
+
+            Destroy(gameObject);
         }
    }
 
-   
+
 }
