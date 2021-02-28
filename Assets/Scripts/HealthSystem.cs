@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class HealthSystem : MonoBehaviour
 
     public HealthBar healthBar;
     public GameObject loseMenu;
+    private float resetTimer = 0.0f;
 
     void Start()
     {
@@ -63,8 +65,11 @@ public class HealthSystem : MonoBehaviour
         if (gameObject.tag.Equals("Player"))
             if (isDead())
             {
-                Time.timeScale = 0;
                 loseMenu.SetActive(true);
+                resetTimer += Time.deltaTime;
+
+                if (resetTimer > 5)
+                    SceneManager.LoadScene(0);
             }
     }
 }
