@@ -11,6 +11,7 @@ public class Blade : MonoBehaviour
         if (other.gameObject.tag.Equals("Fruit"))
         {
             other.gameObject.GetComponent<HealthSystem>().Damage(damage);
+            this.gameObject.GetComponent<AudioSource>().Play();
             other.gameObject.GetComponent<Rigidbody>().AddForce(other.gameObject.transform.forward * -1f * 2f, ForceMode.Impulse);
         }
     }

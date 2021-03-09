@@ -44,7 +44,9 @@ public class FNShootProjectile : MonoBehaviour
         if (counter == fireRate)
         {
             GameObject.Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation);
-            // this.gameObject.GetComponent<AudioSource>().Play();
+            if (this.gameObject.GetComponent<AudioSource>() != null)
+                this.gameObject.GetComponent<AudioSource>().Play();
+    
             counter = 0;
         }
     }

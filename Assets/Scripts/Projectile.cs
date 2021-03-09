@@ -28,6 +28,7 @@ public class Projectile : MonoBehaviour
             {
                 collision.gameObject.GetComponentInParent<HealthSystem>().Damage(damageAmount);
                 collision.gameObject.GetComponentInParent<HealthSystem>().ShowDamage();
+                this.gameObject.GetComponent<AudioSource>().Play();
             }
 
             // apple spits poison (damage over time)
@@ -35,12 +36,14 @@ public class Projectile : MonoBehaviour
             {
                 collision.gameObject.GetComponentInParent<HealthSystem>().Damage(damageAmount * Time.deltaTime);
                 collision.gameObject.GetComponentInParent<HealthSystem>().ShowDamage();
+                this.gameObject.GetComponent<AudioSource>().Play();
             }
 
             // avocado slimes the screen
             if (this.gameObject.name.Equals("Slime(Clone)"))
             {
                 collision.gameObject.GetComponentInParent<Player>().slimed = true;
+                this.gameObject.GetComponent<AudioSource>().Play();
             }
 
         }

@@ -43,6 +43,7 @@ public class HealthSystem : MonoBehaviour
         if (gameObject.tag.Equals("Fruit"))
         {
             ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
+            this.gameObject.GetComponent<AudioSource>().Play();
             ps.Play();
         }
     }
